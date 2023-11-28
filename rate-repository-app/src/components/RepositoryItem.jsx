@@ -7,8 +7,6 @@ import StatisticsItem from './StatisticsItem';
 
 const styles = StyleSheet.create({
     container: {
-      // display: "flex",
-      // flexDirection: "column",
       marginLeft: 24,
       flexGrow: 1,
       flexShrink: 1,
@@ -21,8 +19,6 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-around",
-        // alignContent: "center",
-        // marginBottom: 16,
         marginTop: 24,
       },
     parentContainer: {

@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
   separator: {
     height: 10,
   },
+  
 });
 
 const repositories = [

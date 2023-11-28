@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import Text from './Text';
 import RepoOwnerPic from './RepoOwnerPic';
 import theme from "../theme"
+import StatisticsItem from './StatisticsItem';
 
 const styles = StyleSheet.create({
     container: {
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
       display: "flex",
       flexDirection: "column",
       backgroundColor: "white",
+      marginHorizontal: 16,
       padding: 24,
     },
     text: {
@@ -56,7 +58,6 @@ const styles = StyleSheet.create({
 })
 
 const RepositoryItem = ({ item }) => {
-        
     return (
     <View style={styles.parentContainer}>
         <View style={styles.containerImageAndText}>
@@ -68,22 +69,10 @@ const RepositoryItem = ({ item }) => {
             </View>
         </View>
         <View style={styles.containerStatistics}>
-            <View style={styles.statisticItem}>
-                <Text fontWeight="bold">{item.stargazersCount}</Text>
-                <Text style={styles.colorTextSecondary}>Stars</Text>
-            </View>
-            <View style={styles.statisticItem}>
-                <Text fontWeight="bold">{item.forksCount}</Text>
-                <Text style={styles.colorTextSecondary}>Forks</Text>
-            </View>
-            <View style={styles.statisticItem}>
-                <Text fontWeight="bold">{item.reviewCount}</Text>
-                <Text style={styles.colorTextSecondary}>Reviews</Text>
-            </View>
-            <View style={styles.statisticItem}>
-                <Text fontWeight="bold"> {item.ratingAverage}</Text>
-                <Text style={styles.colorTextSecondary}>Rating</Text>
-            </View>
+            <StatisticsItem digit={item.stargazersCount} text={"Stars"}/>
+            <StatisticsItem digit={item.forksCount} text={"Forks"}/>
+            <StatisticsItem digit={item.reviewCount} text={"Reviews"}/>
+            <StatisticsItem digit={item.ratingAverage} text={"Rating"}/>
         </View>
     </View>)
 

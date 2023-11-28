@@ -5,8 +5,8 @@ import theme from '../theme';
 
 const styles = StyleSheet.create({
   textContainer: {
-    margin: 10,
-    paddingHorizontal: 9,
+    margin: 5,
+    paddingHorizontal: 5,
     paddingVertical: 3,
     borderWidth: 1,
     borderRadius: 9,
@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "white",
   },
+  textColor: {
+    color: "white",
+  }
 })
 
 const SignIn = ({ onSubmit }) => {
@@ -40,7 +43,7 @@ const SignIn = ({ onSubmit }) => {
         style={styles.textContainer}/>
         <Pressable onPress={onSubmit}>
           <View style={[styles.textContainer, styles.signButton]}>
-            <Text>Sign-in</Text>
+            <Text style={styles.textColor}>Sign-in</Text>
           </View>
         </Pressable>
     </View>

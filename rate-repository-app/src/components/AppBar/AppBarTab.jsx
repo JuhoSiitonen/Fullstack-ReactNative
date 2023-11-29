@@ -12,14 +12,12 @@ const styles = StyleSheet.create({
   // ...
 });
 
-const AppBarTab = ({ link }) => {
+const AppBarTab = ({ link, ...props}) => {
   let pagelink = `/${link}`
   return (<View>
-    <Pressable onPress={() => null}>
       <Link to={pagelink}>
-        <Text style={styles.tabStyles}>{link}</Text>
+        <Text style={styles.tabStyles} {...props}>{link}</Text>
       </Link>
-    </Pressable>
   </View>);
 };
 

@@ -2,6 +2,7 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import Text from '../Text';
 import AppBarTab from './AppBarTab';
+import useSignOut from '../../hooks/useSignOut';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,10 +17,20 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
+  const { signOut, data, loading, error} = useSignOut()
+
   return (<View style={styles.container}>
     <ScrollView horizontal>
       <AppBarTab link={"Repositories"}></AppBarTab>
-      <AppBarTab link={"SignIn"}></AppBarTab>
+      { !loading && data.me ? (
+        <>
+          <AppBarTab link={"SignOut"} onPress={signOut}></AppBarTab>
+        </>
+      ) : (
+        <>
+          <AppBarTab link={"SignIn"}></AppBarTab>
+        </>
+      )}
     </ScrollView>
   </View>);
 };

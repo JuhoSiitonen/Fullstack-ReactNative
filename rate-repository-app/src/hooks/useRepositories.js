@@ -1,4 +1,4 @@
-//import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_REPOSITORIES } from '../graphql/queries';
 
@@ -27,7 +27,7 @@ const useRepositories = () => {
 //    fetchRepositories();
 //  }, []);
 
-  return { repositories: data?.repositories, loading, error };
+  return { repositories: data?.repositories, loading,  };
 };
 
 export default useRepositories;

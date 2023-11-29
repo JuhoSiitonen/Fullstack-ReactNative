@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Text from './Text';
+import Text from '../Text';
 import RepoOwnerPic from './RepoOwnerPic';
-import theme from "../theme"
+import theme from "../../theme"
 import StatisticsItem from './StatisticsItem';
 
 const styles = StyleSheet.create({

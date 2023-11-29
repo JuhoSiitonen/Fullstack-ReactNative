@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
-import Text from './Text';
-import theme from "../theme"
-import { digitChanger } from '../utils';
+import Text from '../Text';
+import theme from "../../theme"
+import { digitChanger } from '../../utils';
 
 const styles = StyleSheet.create({
     container: {

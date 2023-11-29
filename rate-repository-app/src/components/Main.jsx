@@ -1,7 +1,7 @@
 import Constants from 'expo-constants';
 import { Route, Routes, Navigate } from 'react-router-native';
 import { Text, StyleSheet, View } from 'react-native';
-import RepositoryList from './RepositoryList';
+import RepositoryList from './RepositoryList/RepositoryList';
 import AppBar from './AppBar';
 import SignInScreen from './SignInScreen'
 
@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     flexShrink: 1,
     backgroundColor: "#e1e4e8",
+     
   },
 });
 

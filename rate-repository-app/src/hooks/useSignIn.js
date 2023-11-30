@@ -9,7 +9,6 @@ const useSignIn = () => {
   const apolloClient = useApolloClient()
 
   const signIn = async ({ username, password }) => {
-    // call the mutate function here with the right arguments
     const response = await mutate({
         variables: {
           credentials: {
@@ -17,6 +16,7 @@ const useSignIn = () => {
             username,
           },
         }});
+        
     await authStorage.setAccessToken(response.data.authenticate.accessToken)
     console.log(response)
     apolloClient.resetStore();

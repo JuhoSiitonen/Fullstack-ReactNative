@@ -27,3 +27,19 @@ query {
       username
     }
   }`
+
+  export const SINGLE_REPOSITORY = gql `
+  query ($repositoryId: ID!) {
+    repository(id: $repositoryId) {
+      id
+      fullName
+      url
+      ownerAvatarUrl
+      forksCount
+      reviewCount
+      ratingAverage
+      stargazersCount
+      language
+      description
+    }
+  }`

@@ -1,16 +1,12 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Pressable } from 'react-native';
 import Text from '../Text';
 import RepoOwnerPic from './RepoOwnerPic';
 import theme from "../../theme"
 import StatisticsItem from './StatisticsItem';
+import * as Linking from 'expo-linking';
 
 const styles = StyleSheet.create({
-    container: {
-      marginLeft: 24,
-      flexGrow: 1,
-      flexShrink: 1,
-    },
     containerImageAndText: {
         display: "flex",
         flexDirection: "row",
@@ -34,26 +30,35 @@ const styles = StyleSheet.create({
     itemMargin: {
       marginBottom: 10,
     },
-    tinyLogo: {
-        width: 50,
-        height: 50,
-    },
     flexItem: {
         flexGrow: 1,
         flexShrink: 1,
         marginLeft: 24,
     },
-    statisticItem: {
-        // marginHorizontal: 16,
-        alignItems: "center",
-      },
     colorTextSecondary: {
         color: theme.colors.textSecondary,
         marginTop: 6,
     },
+    textContainer: {
+      margin: 5,
+      paddingHorizontal: 5,
+      paddingVertical: 3,
+      borderWidth: 1,
+      borderRadius: 9,
+      borderColor: "#b6b6b6",
+    },
+    signButton: {
+      backgroundColor: theme.colors.primary,
+      alignItems: "center",
+      justifyContent: "center",
+      paddingVertical: 9,
+    },
+    textColor: {
+      color: "white",
+    }
 })
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, ...props }) => {
     return (
     <View style={styles.parentContainer} testID="repositoryItem">
         <View style={styles.containerImageAndText}>
@@ -70,6 +75,15 @@ const RepositoryItem = ({ item }) => {
             <StatisticsItem digit={item.reviewCount} text={"Reviews"}/>
             <StatisticsItem digit={item.ratingAverage} text={"Rating"}/>
         </View>
+        {props.single && item.url ? (
+          <Pressable onPress={() => Linking.openURL(item.url)}>
+            <View style={[styles.textContainer, styles.signButton]}>
+              <Text style={styles.textColor}>Open in GitHub</Text>
+            </View>
+          </Pressable>
+        ) : (
+          <></>
+        )}
     </View>)
 
 }

@@ -4,6 +4,8 @@ import { Text, StyleSheet, View } from 'react-native';
 import RepositoryList from './RepositoryList/RepositoryList';
 import AppBar from './AppBar';
 import SignInScreen from './SignInScreen'
+import RepositoryItem from './RepositoryList/RepositoryItem';
+import SingleRepository from './RepositoryList/SingleRepository';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,6 +24,7 @@ const Main = () => {
         <Route path="/" element={<RepositoryList />} />
         <Route path="/signin" element={<SignInScreen />} />
         <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/repository/:id" element={<SingleRepository/>}/>
       </Routes>
     </View>
   );

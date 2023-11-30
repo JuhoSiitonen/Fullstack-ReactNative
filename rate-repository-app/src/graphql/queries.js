@@ -41,5 +41,19 @@ query {
       stargazersCount
       language
       description
+      reviews {
+        edges {
+          node {
+            createdAt
+            id
+            rating
+            text
+            user {
+              username
+            }
+            
+          }
+        }
+      }
     }
   }`

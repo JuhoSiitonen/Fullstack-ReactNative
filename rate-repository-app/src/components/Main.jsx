@@ -1,10 +1,8 @@
-import Constants from 'expo-constants';
 import { Route, Routes, Navigate } from 'react-router-native';
 import { Text, StyleSheet, View } from 'react-native';
 import RepositoryList from './RepositoryList/RepositoryList';
 import AppBar from './AppBar';
 import SignInScreen from './SignInScreen'
-import RepositoryItem from './RepositoryList/RepositoryItem';
 import SingleRepository from './RepositoryList/SingleRepository';
 
 const styles = StyleSheet.create({

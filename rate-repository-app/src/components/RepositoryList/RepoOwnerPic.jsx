@@ -3,8 +3,6 @@ import { View, Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-      // display: "flex",
-      // flexDirection: "column",
       marginLeft: 24,
       flexGrow: 1,
       flexShrink: 1,

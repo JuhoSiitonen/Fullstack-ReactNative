@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 const StatisticsItem = ({ digit, text }) => {
     const digitNew = digitChanger(digit)
     return (
-        <View style={styles.statisticItem}>
+        <View style={styles.statisticItem} testID="textElement">
             <Text fontWeight="bold">{digitNew}</Text>
             <Text style={styles.colorTextSecondary}>{text}</Text>
         </View>

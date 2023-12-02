@@ -24,6 +24,7 @@ const AppBar = () => {
       <AppBarTab link={"Repositories"}></AppBarTab>
       { !loading && data.me ? (
         <>
+          <AppBarTab link={"Review"}></AppBarTab>
           <AppBarTab link={"SignOut"} onPress={signOut}></AppBarTab>
         </>
       ) : (

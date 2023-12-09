@@ -29,10 +29,21 @@ query (
 `;
 
 export const ME = gql`
-query {
+query Me ($includeReviews: Boolean = false) {
     me {
       id
       username
+      reviews @include(if: $includeReviews) {
+        edges {
+          node {
+            createdAt
+            id
+            repositoryId
+            rating
+            text
+          }
+        }
+      }
     }
   }`
 
@@ -59,7 +70,6 @@ query {
             user {
               username
             }
-            
           }
         }
       }

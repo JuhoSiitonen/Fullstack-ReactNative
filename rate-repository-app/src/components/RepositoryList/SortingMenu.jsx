@@ -22,8 +22,9 @@ export const repoSortingVariables = {
 
 
 const styles = StyleSheet.create({
-    separator: {
-      height: 10,
+    bar: {
+        height: 50,
+        marginTop: 10,
     },
   });
 
@@ -34,7 +35,7 @@ const SortingMenu = ({ setRepoSortVar }) => {
     const closeMenu = () => setVisible(false);
 
     return (
-            <View>
+            <View style={styles.bar}>
                 <Menu
                     visible={visible}
                     onDismiss={closeMenu}

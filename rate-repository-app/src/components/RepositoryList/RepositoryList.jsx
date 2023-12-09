@@ -4,6 +4,7 @@ import useRepositories from '../../hooks/useRepositories'
 import { useNavigate } from 'react-router-native';
 import SortingMenu, { repoSortingVariables } from './SortingMenu';
 import { useState } from 'react';
+import SearchBar from './SearchBar';
 
 const styles = StyleSheet.create({
   separator: {
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const RepositoryListContainer = ({ repositories, setRepoSortVar }) => {
+export const RepositoryListContainer = ({ repositories, setRepoSortVar, setKeyword }) => {
   const navigate = useNavigate()
   
   const repositoryNodes = repositories
@@ -32,7 +33,10 @@ export const RepositoryListContainer = ({ repositories, setRepoSortVar }) => {
       keyExtractor={(item) => item.id}
       renderItem={renderComponent}
       ListHeaderComponent={
-      <SortingMenu setRepoSortVar={setRepoSortVar}/>}
+      <View>
+        <SearchBar setKeyword={setKeyword} />
+        <SortingMenu setRepoSortVar={setRepoSortVar}/>
+      </View>}
       />
   );
 }
@@ -40,19 +44,24 @@ export const RepositoryListContainer = ({ repositories, setRepoSortVar }) => {
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const RepositoryList = () => {
-  const [keyword, setKeyword] = useState("")
+  const [searchKeyword, setKeyword] = useState("")
   const [repoSortVar, setRepoSortVar] = useState(
     repoSortingVariables.latest
   )
-  const { repositories } = useRepositories(repoSortVar)
+  const { repositories } = useRepositories({
+    ...repoSortVar,
+    searchKeyword
+    })
   console.log(repoSortVar)
+  console.log(searchKeyword)
   console.log(repositories)
 
   return (
     <View>
       <RepositoryListContainer 
       repositories={repositories} 
-      setRepoSortVar={setRepoSortVar} />
+      setRepoSortVar={setRepoSortVar}
+      setKeyword={setKeyword} />
     </View>
   );
 };
